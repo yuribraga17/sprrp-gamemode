@@ -1,0 +1,2803 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="file:///C|/Users/Yur$/Desktop/São Paulo Roleplay (Gamemode)/pawno/xml/pawndoc.xsl" type="text/xsl"?>
+<doc source="c:\Users\Yur$\Desktop\São Paulo Roleplay (Gamemode)\filterscripts\sprp_map.pwn">
+	<assembly>
+		<name>sprp_map.pwn</name>
+	</assembly>
+	<members>
+
+		<!-- enumerations -->
+		<member name="T:CAOBJECTINFO" value="4">
+			<tagname value="CAOBJECTINFO"/>
+			<member name="C:ColdAndreadsID" value="0">
+			</member>
+			<member name="C:ObjectID" value="1">
+			</member>
+			<member name="C:ObjectType" value="2">
+			</member>
+			<member name="C:ObjectUsed" value="3">
+				<tagname value="bool"/>
+			</member>
+		</member>
+
+		<!-- constants -->
+		<member name="C:cellmax" value="2147483647">
+			<referrer name="operator!(Float:)"/>
+		</member>
+		<member name="C:cellmin" value="-2147483648">
+			<referrer name="operator-(Float:)"/>
+		</member>
+		<member name="C:false" value="0">
+			<tagname value="bool"/>
+			<referrer name="CA_CreateDynamicObjectEx_DC"/>
+			<referrer name="CA_CreateDynamicObject_DC"/>
+			<referrer name="CA_CreateObject_DC"/>
+			<referrer name="CA_DestroyObject_DC"/>
+		</member>
+		<member name="C:true" value="1">
+			<tagname value="bool"/>
+			<referrer name="CA_CreateDynamicObjectEx_DC"/>
+			<referrer name="CA_CreateDynamicObject_DC"/>
+			<referrer name="CA_CreateObject_DC"/>
+		</member>
+
+		<!-- variables -->
+		<member name="F:CA_ObjectList">
+			<referrer name="CA_CreateDynamicObjectEx_DC"/>
+			<referrer name="CA_CreateDynamicObject_DC"/>
+			<referrer name="CA_CreateObject_DC"/>
+			<referrer name="CA_DestroyObject_DC"/>
+			<referrer name="CA_SetObjectPos_DC"/>
+			<referrer name="CA_SetObjectRot_DC"/>
+			<referrer name="CA_DestroyAllObjects_DC"/>
+		</member>
+		<member name="F:Streamer_IncludeFileVersion">
+			<attribute name="public"/>
+		</member>
+
+		<!-- functions -->
+		<member name="M:operator!(Float:)" syntax="operator!(Float:)(oper)">
+			<tagname value="bool"/>
+			<stacksize value="1"/>
+			<dependency name="cellmax"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator%(_:,Float:)" syntax="operator%(_:,Float:)(oper1, oper2)">
+			<stacksize value="1"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator%(Float:,_:)" syntax="operator%(Float:,_:)(oper1, oper2)">
+			<stacksize value="1"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator%(Float:,Float:)" syntax="operator%(Float:,Float:)(oper1, oper2)">
+			<stacksize value="1"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator!=(Float:,_:)" syntax="operator!=(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator!=(Float:,Float:)" syntax="operator!=(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(_:,Float:)" syntax="operator-(_:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatsub"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(Float:,_:)" syntax="operator-(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<referrer name="CA_RayCastExplode"/>
+			<dependency name="float"/>
+			<dependency name="floatsub"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator+(Float:,_:)" syntax="operator+(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatadd"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator/(_:,Float:)" syntax="operator/(_:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatdiv"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator/(Float:,_:)" syntax="operator/(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatdiv"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator*(Float:,_:)" syntax="operator*(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<referrer name="CA_IsPlayerNearWater"/>
+			<dependency name="float"/>
+			<dependency name="floatmul"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator++(Float:)" syntax="operator++(Float:)(oper)">
+			<tagname value="Float"/>
+			<stacksize value="1"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(Float:)" syntax="operator-(Float:)(oper)">
+			<tagname value="Float"/>
+			<stacksize value="1"/>
+			<referrer name="CA_RayCastExplode"/>
+			<referrer name="CA_IsPlayerFacingWater"/>
+			<referrer name="CA_IsPlayerBlocked"/>
+			<dependency name="cellmin"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator--(Float:)" syntax="operator--(Float:)(oper)">
+			<tagname value="Float"/>
+			<stacksize value="1"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(Float:,Float:)" syntax="operator-(Float:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator--(Float:)"/>
+			<referrer name="CA_IsPlayerOnSurface"/>
+			<referrer name="CA_IsPlayerInWater"/>
+			<referrer name="CA_IsPlayerNearWater"/>
+			<referrer name="CA_IsPlayerFacingWater"/>
+			<referrer name="CA_IsPlayerBlocked"/>
+			<referrer name="CA_GetRoomHeight"/>
+			<referrer name="CA_GetRoomCenter"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator+(Float:,Float:)" syntax="operator+(Float:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator++(Float:)"/>
+			<referrer name="CA_RayCastExplode"/>
+			<referrer name="CA_IsPlayerInWater"/>
+			<referrer name="CA_IsPlayerNearWater"/>
+			<referrer name="CA_IsPlayerFacingWater"/>
+			<referrer name="CA_IsPlayerBlocked"/>
+			<referrer name="CA_GetRoomHeight"/>
+			<referrer name="CA_GetRoomCenter"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator/(Float:,Float:)" syntax="operator/(Float:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="CA_RayCastExplode"/>
+			<referrer name="CA_GetRoomCenter"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator*(Float:,Float:)" syntax="operator*(Float:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="CA_RayCastExplode"/>
+			<referrer name="CA_IsPlayerNearWater"/>
+			<referrer name="CA_IsPlayerFacingWater"/>
+			<referrer name="CA_IsPlayerBlocked"/>
+			<referrer name="CA_GetRoomHeight"/>
+			<referrer name="CA_GetRoomCenter"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:Float:operator=(_:)" syntax="Float:operator=(_:)(oper)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="Apartamento2"/>
+			<param name="oper">
+			</param>
+		</member>
+		<member name="M:operator==(Float:,Float:)" syntax="operator==(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator==(Float:,_:)" syntax="operator==(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&gt;(Float:,Float:)" syntax="operator&gt;(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<referrer name="CA_RayCastExplode"/>
+			<referrer name="CA_IsPlayerInWater"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&gt;(Float:,_:)" syntax="operator&gt;(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&gt;(_:,Float:)" syntax="operator&gt;(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&gt;=(Float:,Float:)" syntax="operator&gt;=(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&gt;=(Float:,_:)" syntax="operator&gt;=(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&gt;=(_:,Float:)" syntax="operator&gt;=(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;(Float:,Float:)" syntax="operator&lt;(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<referrer name="CA_RayCastExplode"/>
+			<referrer name="CA_IsPlayerInWater"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;(Float:,_:)" syntax="operator&lt;(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&lt;(_:,Float:)" syntax="operator&lt;(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;=(Float:,Float:)" syntax="operator&lt;=(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<referrer name="CA_GetRoomCenter"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;=(Float:,_:)" syntax="operator&lt;=(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&lt;=(_:,Float:)" syntax="operator&lt;=(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:@receivepacket" syntax="@receivepacket(packet[], size, source[])">
+			<attribute name="public"/>
+			<stacksize value="1"/>
+			<param name="packet">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="size">
+			</param>
+			<param name="source">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:@receivestring" syntax="@receivestring(message[], source[])">
+			<attribute name="public"/>
+			<stacksize value="1"/>
+			<param name="message">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="source">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:Apartamento2" syntax="Apartamento2()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="Float:operator=(_:)"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Apartamento3" syntax="Apartamento3()">
+			<stacksize value="17"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:ApartamentoInt1" syntax="ApartamentoInt1()">
+			<stacksize value="17"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Barzinho1" syntax="Barzinho1()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Barzinho2" syntax="Barzinho2()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Barzinho3" syntax="Barzinho3()">
+			<stacksize value="2000"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="SetDynamicObjectMaterialText"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:BoxLocal" syntax="BoxLocal()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+		</member>
+		<member name="M:CA_CreateDynamicObjectEx_DC" syntax="CA_CreateDynamicObjectEx_DC(modelid, x, y, z, rx, ry, rz, streamdistance, drawdistance, worlds[], interiors[], players[], areas[], priority, maxworlds, maxinteriors, maxplayers, maxareas)">
+			<stacksize value="21"/>
+			<dependency name="CA_CreateObject"/>
+			<dependency name="CA_ObjectList"/>
+			<dependency name="CA_ObjectList"/>
+			<dependency name="ColdAndreadsID"/>
+			<dependency name="CreateDynamicObjectEx"/>
+			<dependency name="ObjectID"/>
+			<dependency name="ObjectType"/>
+			<dependency name="ObjectUsed"/>
+			<dependency name="false"/>
+			<dependency name="true"/>
+			<param name="modelid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ry">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rz">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="streamdistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="drawdistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="worlds">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="interiors">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="players">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="areas">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="priority">
+			</param>
+			<param name="maxworlds">
+			</param>
+			<param name="maxinteriors">
+			</param>
+			<param name="maxplayers">
+			</param>
+			<param name="maxareas">
+			</param>
+		</member>
+		<member name="M:CA_CreateDynamicObjectEx_SC" syntax="CA_CreateDynamicObjectEx_SC(modelid, x, y, z, rx, ry, rz, streamdistance, drawdistance, worlds[], interiors[], players[], areas[], priority, maxworlds, maxinteriors, maxplayers, maxareas)">
+			<stacksize value="21"/>
+			<dependency name="CA_CreateObject"/>
+			<dependency name="CreateDynamicObjectEx"/>
+			<param name="modelid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ry">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rz">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="streamdistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="drawdistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="worlds">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="interiors">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="players">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="areas">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="priority">
+			</param>
+			<param name="maxworlds">
+			</param>
+			<param name="maxinteriors">
+			</param>
+			<param name="maxplayers">
+			</param>
+			<param name="maxareas">
+			</param>
+		</member>
+		<member name="M:CA_CreateDynamicObject_DC" syntax="CA_CreateDynamicObject_DC(modelid, x, y, z, rx, ry, rz, vw, interior, playerid, streamdistance, drawdistance, areaid, priority)">
+			<stacksize value="17"/>
+			<dependency name="CA_CreateObject"/>
+			<dependency name="CA_ObjectList"/>
+			<dependency name="CA_ObjectList"/>
+			<dependency name="ColdAndreadsID"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="ObjectID"/>
+			<dependency name="ObjectType"/>
+			<dependency name="ObjectUsed"/>
+			<dependency name="false"/>
+			<dependency name="true"/>
+			<param name="modelid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ry">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rz">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="vw">
+			</param>
+			<param name="interior">
+			</param>
+			<param name="playerid">
+			</param>
+			<param name="streamdistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="drawdistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="areaid">
+			</param>
+			<param name="priority">
+			</param>
+		</member>
+		<member name="M:CA_CreateDynamicObject_SC" syntax="CA_CreateDynamicObject_SC(modelid, x, y, z, rx, ry, rz, vw, interior, playerid, streamdistance, drawdistance, areaid, priority)">
+			<stacksize value="17"/>
+			<referrer name="docas"/>
+			<dependency name="CA_CreateObject"/>
+			<dependency name="CreateDynamicObject"/>
+			<param name="modelid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ry">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rz">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="vw">
+			</param>
+			<param name="interior">
+			</param>
+			<param name="playerid">
+			</param>
+			<param name="streamdistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="drawdistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="areaid">
+			</param>
+			<param name="priority">
+			</param>
+		</member>
+		<member name="M:CA_CreateObject" syntax="CA_CreateObject(modelid, x, y, z, rx, ry, rz, add)">
+			<attribute name="native"/>
+			<referrer name="CA_CreateDynamicObjectEx_SC"/>
+			<referrer name="CA_CreateDynamicObject_SC"/>
+			<referrer name="CA_CreateObject_SC"/>
+			<referrer name="CA_CreateDynamicObjectEx_DC"/>
+			<referrer name="CA_CreateDynamicObject_DC"/>
+			<referrer name="CA_CreateObject_DC"/>
+			<param name="modelid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ry">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rz">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="add">
+				<paraminfo>bool </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_CreateObject_DC" syntax="CA_CreateObject_DC(modelid, x, y, z, rx, ry, rz, drawdistance)">
+			<stacksize value="12"/>
+			<dependency name="CA_CreateObject"/>
+			<dependency name="CA_ObjectList"/>
+			<dependency name="CA_ObjectList"/>
+			<dependency name="ColdAndreadsID"/>
+			<dependency name="CreateObject"/>
+			<dependency name="ObjectID"/>
+			<dependency name="ObjectType"/>
+			<dependency name="ObjectUsed"/>
+			<dependency name="false"/>
+			<dependency name="true"/>
+			<param name="modelid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ry">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rz">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="drawdistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_CreateObject_SC" syntax="CA_CreateObject_SC(modelid, x, y, z, rx, ry, rz, drawdistance)">
+			<stacksize value="11"/>
+			<dependency name="CA_CreateObject"/>
+			<dependency name="CreateObject"/>
+			<param name="modelid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ry">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rz">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="drawdistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_DestroyAllObjects_DC" syntax="CA_DestroyAllObjects_DC()">
+			<stacksize value="5"/>
+			<referrer name="OnFilterScriptExit"/>
+			<referrer name="OnGameModeExit"/>
+			<dependency name="CA_DestroyObject_DC"/>
+			<dependency name="CA_ObjectList"/>
+			<dependency name="ObjectType"/>
+			<dependency name="ObjectUsed"/>
+		</member>
+		<member name="M:CA_DestroyObject" syntax="CA_DestroyObject(index)">
+			<attribute name="native"/>
+			<referrer name="CA_DestroyObject_DC"/>
+			<param name="index">
+			</param>
+		</member>
+		<member name="M:CA_DestroyObject_DC" syntax="CA_DestroyObject_DC(index)">
+			<stacksize value="3"/>
+			<referrer name="CA_DestroyAllObjects_DC"/>
+			<dependency name="CA_DestroyObject"/>
+			<dependency name="CA_ObjectList"/>
+			<dependency name="CA_ObjectList"/>
+			<dependency name="ColdAndreadsID"/>
+			<dependency name="DestroyDynamicObject"/>
+			<dependency name="DestroyObject"/>
+			<dependency name="ObjectID"/>
+			<dependency name="ObjectType"/>
+			<dependency name="ObjectUsed"/>
+			<dependency name="false"/>
+			<param name="index">
+			</param>
+		</member>
+		<member name="M:CA_FindZ_For2DCoord" syntax="CA_FindZ_For2DCoord(x, y, &amp;z)">
+			<stacksize value="11"/>
+			<dependency name="CA_RayCastLine"/>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_GetRoomCenter" syntax="CA_GetRoomCenter(x, y, z, &amp;m_x, &amp;m_y)">
+			<tagname value="Float"/>
+			<stacksize value="18"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="operator/(Float:,Float:)"/>
+			<dependency name="operator*(Float:,Float:)"/>
+			<dependency name="operator&lt;=(Float:,Float:)"/>
+			<dependency name="CA_RayCastLine"/>
+			<dependency name="VectorSize"/>
+			<dependency name="degrees"/>
+			<dependency name="floatabs"/>
+			<dependency name="floatcos"/>
+			<dependency name="floatsin"/>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="m_x">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="m_y">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_GetRoomHeight" syntax="CA_GetRoomHeight(x, y, z)">
+			<tagname value="Float"/>
+			<stacksize value="17"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="operator*(Float:,Float:)"/>
+			<dependency name="CA_RayCastLine"/>
+			<dependency name="floatsqroot"/>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_Init" syntax="CA_Init()">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+		</member>
+		<member name="M:CA_IsPlayerBlocked" syntax="CA_IsPlayerBlocked(playerid, dist, height)">
+			<stacksize value="17"/>
+			<dependency name="operator-(Float:)"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="operator*(Float:,Float:)"/>
+			<dependency name="CA_RayCastLine"/>
+			<dependency name="GetPlayerFacingAngle"/>
+			<dependency name="GetPlayerPos"/>
+			<dependency name="degrees"/>
+			<dependency name="floatcos"/>
+			<dependency name="floatsin"/>
+			<param name="playerid">
+			</param>
+			<param name="dist">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="height">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_IsPlayerFacingWater" syntax="CA_IsPlayerFacingWater(playerid, dist, height)">
+			<stacksize value="16"/>
+			<dependency name="operator-(Float:)"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="operator*(Float:,Float:)"/>
+			<dependency name="CA_RayCastLine"/>
+			<dependency name="GetPlayerFacingAngle"/>
+			<dependency name="GetPlayerPos"/>
+			<dependency name="degrees"/>
+			<dependency name="floatcos"/>
+			<dependency name="floatsin"/>
+			<param name="playerid">
+			</param>
+			<param name="dist">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="height">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_IsPlayerInWater" syntax="CA_IsPlayerInWater(playerid, &amp;depth, &amp;playerdepth)">
+			<stacksize value="68"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="operator&gt;(Float:,Float:)"/>
+			<dependency name="operator&lt;(Float:,Float:)"/>
+			<dependency name="CA_RayCastMultiLine"/>
+			<dependency name="GetPlayerPos"/>
+			<param name="playerid">
+			</param>
+			<param name="depth">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="playerdepth">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_IsPlayerNearWater" syntax="CA_IsPlayerNearWater(playerid, dist, height)">
+			<stacksize value="16"/>
+			<dependency name="operator*(Float:,_:)"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="operator*(Float:,Float:)"/>
+			<dependency name="CA_RayCastLine"/>
+			<dependency name="GetPlayerPos"/>
+			<dependency name="degrees"/>
+			<dependency name="floatcos"/>
+			<dependency name="floatsin"/>
+			<param name="playerid">
+			</param>
+			<param name="dist">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="height">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_IsPlayerOnSurface" syntax="CA_IsPlayerOnSurface(playerid, tolerance)">
+			<stacksize value="14"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<dependency name="CA_RayCastLine"/>
+			<dependency name="GetPlayerPos"/>
+			<param name="playerid">
+			</param>
+			<param name="tolerance">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_OnFilterScriptExit" syntax="CA_OnFilterScriptExit()">
+			<stacksize value="1"/>
+		</member>
+		<member name="M:CA_OnGameModeExit" syntax="CA_OnGameModeExit()">
+			<stacksize value="1"/>
+		</member>
+		<member name="M:CA_RayCastExplode" syntax="CA_RayCastExplode(cX, cY, cZ, Radius, intensity, collisions[][])">
+			<stacksize value="19"/>
+			<dependency name="operator-(Float:,_:)"/>
+			<dependency name="operator-(Float:)"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="operator/(Float:,Float:)"/>
+			<dependency name="operator*(Float:,Float:)"/>
+			<dependency name="operator&gt;(Float:,Float:)"/>
+			<dependency name="operator&lt;(Float:,Float:)"/>
+			<dependency name="CA_RayCastLine"/>
+			<dependency name="floatcos"/>
+			<dependency name="floatround"/>
+			<dependency name="floatround_floor"/>
+			<dependency name="floatsin"/>
+			<param name="cX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="cY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="cZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Radius">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="intensity">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="collisions">
+				<paraminfo>Float [][3] </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_RayCastLine" syntax="CA_RayCastLine(StartX, StartY, StartZ, EndX, EndY, EndZ, &amp;x, &amp;y, &amp;z)">
+			<attribute name="native"/>
+			<referrer name="CA_FindZ_For2DCoord"/>
+			<referrer name="CA_RayCastExplode"/>
+			<referrer name="CA_IsPlayerOnSurface"/>
+			<referrer name="CA_IsPlayerNearWater"/>
+			<referrer name="CA_IsPlayerFacingWater"/>
+			<referrer name="CA_IsPlayerBlocked"/>
+			<referrer name="CA_GetRoomHeight"/>
+			<referrer name="CA_GetRoomCenter"/>
+			<param name="StartX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="StartY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="StartZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="EndX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="EndY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="EndZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="x">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_RayCastMultiLine" syntax="CA_RayCastMultiLine(StartX, StartY, StartZ, EndX, EndY, EndZ, retx[], rety[], retz[], retdist[], ModelIDs[], size)">
+			<attribute name="native"/>
+			<referrer name="CA_IsPlayerInWater"/>
+			<param name="StartX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="StartY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="StartZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="EndX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="EndY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="EndZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="retx">
+				<paraminfo>Float [] </paraminfo>
+			</param>
+			<param name="rety">
+				<paraminfo>Float [] </paraminfo>
+			</param>
+			<param name="retz">
+				<paraminfo>Float [] </paraminfo>
+			</param>
+			<param name="retdist">
+				<paraminfo>Float [] </paraminfo>
+			</param>
+			<param name="ModelIDs">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="size">
+			</param>
+		</member>
+		<member name="M:CA_RemoveBarriers" syntax="CA_RemoveBarriers()">
+			<stacksize value="8"/>
+			<dependency name="CA_RemoveBuilding"/>
+		</member>
+		<member name="M:CA_RemoveBreakableBuildings" syntax="CA_RemoveBreakableBuildings()">
+			<stacksize value="8"/>
+			<dependency name="CA_RemoveBuilding"/>
+		</member>
+		<member name="M:CA_RemoveBuilding" syntax="CA_RemoveBuilding(modelid, x, y, z, radius)">
+			<attribute name="native"/>
+			<referrer name="CA_RemoveBarriers"/>
+			<referrer name="CA_RemoveBreakableBuildings"/>
+			<param name="modelid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="radius">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_SetObjectPos" syntax="CA_SetObjectPos(index, x, y, z)">
+			<attribute name="native"/>
+			<referrer name="CA_SetObjectPos_DC"/>
+			<param name="index">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_SetObjectPos_DC" syntax="CA_SetObjectPos_DC(index, x, y, z)">
+			<stacksize value="6"/>
+			<dependency name="CA_ObjectList"/>
+			<dependency name="CA_SetObjectPos"/>
+			<dependency name="ColdAndreadsID"/>
+			<dependency name="ObjectID"/>
+			<dependency name="ObjectType"/>
+			<dependency name="ObjectUsed"/>
+			<dependency name="SetDynamicObjectPos"/>
+			<dependency name="SetObjectPos"/>
+			<param name="index">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_SetObjectRot" syntax="CA_SetObjectRot(index, rx, ry, rz)">
+			<attribute name="native"/>
+			<referrer name="CA_SetObjectRot_DC"/>
+			<param name="index">
+			</param>
+			<param name="rx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ry">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rz">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:CA_SetObjectRot_DC" syntax="CA_SetObjectRot_DC(index, rx, ry, rz)">
+			<stacksize value="6"/>
+			<dependency name="CA_ObjectList"/>
+			<dependency name="CA_SetObjectRot"/>
+			<dependency name="ColdAndreadsID"/>
+			<dependency name="ObjectID"/>
+			<dependency name="ObjectType"/>
+			<dependency name="ObjectUsed"/>
+			<dependency name="SetDynamicObjectRot"/>
+			<dependency name="SetObjectRot"/>
+			<param name="index">
+			</param>
+			<param name="rx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ry">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rz">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:CallLocalFunction" syntax="CallLocalFunction(function[], format[], ...)">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptExit"/>
+			<referrer name="OnGameModeExit"/>
+			<param name="function">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="format">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="...">
+				<paraminfo> {Float,_} </paraminfo>
+			</param>
+		</member>
+		<member name="M:Casas_Empresas_Vazios" syntax="Casas_Empresas_Vazios()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:CentralDeEmpregos" syntax="CentralDeEmpregos()">
+			<stacksize value="17"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:CoberturaComPiscina" syntax="CoberturaComPiscina()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Complexo_1" syntax="Complexo_1()">
+			<stacksize value="60"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Complexo_2" syntax="Complexo_2()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Complexo_3" syntax="Complexo_3()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Complexo_4" syntax="Complexo_4()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Complexo_5" syntax="Complexo_5()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Complexo_7" syntax="Complexo_7()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Complexo_8" syntax="Complexo_8()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+		</member>
+		<member name="M:Complexo_9" syntax="Complexo_9()">
+			<stacksize value="98"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+		</member>
+		<member name="M:Complexo_CA1" syntax="Complexo_CA1()">
+			<stacksize value="18"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+		</member>
+		<member name="M:CreateDynamicObject" syntax="CreateDynamicObject(modelid, x, y, z, rx, ry, rz, worldid, interiorid, playerid, streamdistance, drawdistance, areaid, priority)">
+			<attribute name="native"/>
+			<referrer name="CA_CreateDynamicObject_SC"/>
+			<referrer name="CA_CreateDynamicObject_DC"/>
+			<referrer name="pmespint"/>
+			<referrer name="pcesp"/>
+			<referrer name="postonorte"/>
+			<referrer name="postosul"/>
+			<referrer name="caixafederal"/>
+			<referrer name="parque"/>
+			<referrer name="pmesp"/>
+			<referrer name="pcespint"/>
+			<referrer name="Complexo_CA1"/>
+			<referrer name="ApartamentoInt1"/>
+			<referrer name="Apartamento2"/>
+			<referrer name="Apartamento3"/>
+			<referrer name="Barzinho1"/>
+			<referrer name="Barzinho2"/>
+			<referrer name="Barzinho3"/>
+			<referrer name="Empresa_1"/>
+			<referrer name="Complexo_1"/>
+			<referrer name="Complexo_2"/>
+			<referrer name="Complexo_3"/>
+			<referrer name="Complexo_4"/>
+			<referrer name="DrugHouse_1"/>
+			<referrer name="Loja_Eletronicos"/>
+			<referrer name="Casas_Empresas_Vazios"/>
+			<referrer name="Complexo_5"/>
+			<referrer name="Lavanderia_P"/>
+			<referrer name="CentralDeEmpregos"/>
+			<referrer name="CoberturaComPiscina"/>
+			<referrer name="IgrejaInterior"/>
+			<referrer name="PlacasStop"/>
+			<referrer name="Interior_Estudio"/>
+			<referrer name="Complexo_7"/>
+			<referrer name="Mapas_Desbugados"/>
+			<referrer name="Shopping"/>
+			<referrer name="PawnShop"/>
+			<referrer name="EstudioFM"/>
+			<referrer name="Igreja_1"/>
+			<referrer name="BoxLocal"/>
+			<referrer name="Complexo_8"/>
+			<referrer name="Complexo_9"/>
+			<referrer name="WeaponHouse_1"/>
+			<referrer name="FightRoom"/>
+			<referrer name="StripClub_New"/>
+			<param name="modelid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ry">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rz">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="worldid">
+			</param>
+			<param name="interiorid">
+			</param>
+			<param name="playerid">
+			</param>
+			<param name="streamdistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="drawdistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="areaid">
+			</param>
+			<param name="priority">
+			</param>
+		</member>
+		<member name="M:CreateDynamicObjectEx" syntax="CreateDynamicObjectEx(modelid, x, y, z, rx, ry, rz, streamdistance, drawdistance, worlds[], interiors[], players[], areas[], priority, maxworlds, maxinteriors, maxplayers, maxareas)">
+			<attribute name="native"/>
+			<referrer name="CA_CreateDynamicObjectEx_SC"/>
+			<referrer name="CA_CreateDynamicObjectEx_DC"/>
+			<referrer name="Hospital_Int"/>
+			<referrer name="postosul"/>
+			<referrer name="parque"/>
+			<referrer name="SonyShop"/>
+			<referrer name="Prefeitura"/>
+			<param name="modelid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ry">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rz">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="streamdistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="drawdistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="worlds">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="interiors">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="players">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="areas">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="priority">
+			</param>
+			<param name="maxworlds">
+			</param>
+			<param name="maxinteriors">
+			</param>
+			<param name="maxplayers">
+			</param>
+			<param name="maxareas">
+			</param>
+		</member>
+		<member name="M:CreateObject" syntax="CreateObject(modelid, X, Y, Z, rX, rY, rZ, DrawDistance)">
+			<attribute name="native"/>
+			<referrer name="CA_CreateObject_SC"/>
+			<referrer name="CA_CreateObject_DC"/>
+			<param name="modelid">
+			</param>
+			<param name="X">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="DrawDistance">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:DestroyDynamicObject" syntax="DestroyDynamicObject(objectid)">
+			<attribute name="native"/>
+			<referrer name="CA_DestroyObject_DC"/>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:DestroyObject" syntax="DestroyObject(objectid)">
+			<attribute name="native"/>
+			<referrer name="CA_DestroyObject_DC"/>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:DrugHouse_1" syntax="DrugHouse_1()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Empresa_1" syntax="Empresa_1()">
+			<stacksize value="17"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:EstudioFM" syntax="EstudioFM()">
+			<stacksize value="17"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+		</member>
+		<member name="M:FightRoom" syntax="FightRoom()">
+			<stacksize value="17"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+		</member>
+		<member name="M:GetPlayerFacingAngle" syntax="GetPlayerFacingAngle(playerid, &amp;ang)">
+			<attribute name="native"/>
+			<referrer name="CA_IsPlayerFacingWater"/>
+			<referrer name="CA_IsPlayerBlocked"/>
+			<param name="playerid">
+			</param>
+			<param name="ang">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:GetPlayerPos" syntax="GetPlayerPos(playerid, &amp;x, &amp;y, &amp;z)">
+			<attribute name="native"/>
+			<referrer name="CA_IsPlayerOnSurface"/>
+			<referrer name="CA_IsPlayerInWater"/>
+			<referrer name="CA_IsPlayerNearWater"/>
+			<referrer name="CA_IsPlayerFacingWater"/>
+			<referrer name="CA_IsPlayerBlocked"/>
+			<param name="playerid">
+			</param>
+			<param name="x">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:Hospital_Int" syntax="Hospital_Int()">
+			<stacksize value="21"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObjectEx"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:IgrejaInterior" syntax="IgrejaInterior()">
+			<stacksize value="17"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Igreja_1" syntax="Igreja_1()">
+			<stacksize value="17"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+		</member>
+		<member name="M:Interior_Estudio" syntax="Interior_Estudio()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Lavanderia_P" syntax="Lavanderia_P()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Loja_Eletronicos" syntax="Loja_Eletronicos()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Mapas_Desbugados" syntax="Mapas_Desbugados()">
+			<stacksize value="16"/>
+			<dependency name="CreateDynamicObject"/>
+		</member>
+		<member name="M:OnActorStreamIn" syntax="OnActorStreamIn(actorid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="actorid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnActorStreamOut" syntax="OnActorStreamOut(actorid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="actorid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnDialogResponse" syntax="OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="dialogid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="listitem">
+			</param>
+			<param name="inputtext">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnDynamicActorStreamIn" syntax="OnDynamicActorStreamIn(actorid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="actorid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnDynamicActorStreamOut" syntax="OnDynamicActorStreamOut(actorid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="actorid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnDynamicObjectMoved" syntax="OnDynamicObjectMoved(objectid)">
+			<stacksize value="1"/>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:OnEnterExitModShop" syntax="OnEnterExitModShop(playerid, enterexit, interiorid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="enterexit">
+			</param>
+			<param name="interiorid">
+			</param>
+		</member>
+		<member name="M:OnFilterScriptExit" syntax="OnFilterScriptExit()">
+			<attribute name="public"/>
+			<stacksize value="4"/>
+			<dependency name="CA_DestroyAllObjects_DC"/>
+			<dependency name="CallLocalFunction"/>
+			<dependency name="funcidx"/>
+		</member>
+		<member name="M:OnFilterScriptInit" syntax="OnFilterScriptInit()">
+			<attribute name="public"/>
+			<stacksize value="3"/>
+			<dependency name="Apartamento2"/>
+			<dependency name="Apartamento3"/>
+			<dependency name="ApartamentoInt1"/>
+			<dependency name="Barzinho1"/>
+			<dependency name="Barzinho2"/>
+			<dependency name="Barzinho3"/>
+			<dependency name="BoxLocal"/>
+			<dependency name="CA_Init"/>
+			<dependency name="Casas_Empresas_Vazios"/>
+			<dependency name="CentralDeEmpregos"/>
+			<dependency name="CoberturaComPiscina"/>
+			<dependency name="Complexo_1"/>
+			<dependency name="Complexo_2"/>
+			<dependency name="Complexo_3"/>
+			<dependency name="Complexo_4"/>
+			<dependency name="Complexo_5"/>
+			<dependency name="Complexo_7"/>
+			<dependency name="Complexo_8"/>
+			<dependency name="Complexo_9"/>
+			<dependency name="Complexo_CA1"/>
+			<dependency name="DrugHouse_1"/>
+			<dependency name="Empresa_1"/>
+			<dependency name="EstudioFM"/>
+			<dependency name="FightRoom"/>
+			<dependency name="Hospital_Int"/>
+			<dependency name="IgrejaInterior"/>
+			<dependency name="Interior_Estudio"/>
+			<dependency name="Lavanderia_P"/>
+			<dependency name="Loja_Eletronicos"/>
+			<dependency name="PawnShop"/>
+			<dependency name="PlacasStop"/>
+			<dependency name="Prefeitura"/>
+			<dependency name="Shopping"/>
+			<dependency name="SonyShop"/>
+			<dependency name="StripClub_New"/>
+			<dependency name="WeaponHouse_1"/>
+			<dependency name="caixafederal"/>
+			<dependency name="docas"/>
+			<dependency name="parque"/>
+			<dependency name="pcesp"/>
+			<dependency name="pcespint"/>
+			<dependency name="pmesp"/>
+			<dependency name="pmespint"/>
+			<dependency name="postonorte"/>
+			<dependency name="postosul"/>
+		</member>
+		<member name="M:OnGameModeExit" syntax="OnGameModeExit()">
+			<attribute name="public"/>
+			<stacksize value="4"/>
+			<dependency name="CA_DestroyAllObjects_DC"/>
+			<dependency name="CallLocalFunction"/>
+			<dependency name="funcidx"/>
+		</member>
+		<member name="M:OnGameModeInit" syntax="OnGameModeInit()">
+			<stacksize value="1"/>
+		</member>
+		<member name="M:OnIncomingConnection" syntax="OnIncomingConnection(playerid, ip_address[], port)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="ip_address">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="port">
+			</param>
+		</member>
+		<member name="M:OnObjectMoved" syntax="OnObjectMoved(objectid)">
+			<stacksize value="1"/>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:OnPlayerClickMap" syntax="OnPlayerClickMap(playerid, fX, fY, fZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerClickPlayer" syntax="OnPlayerClickPlayer(playerid, clickedplayerid, source)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="clickedplayerid">
+			</param>
+			<param name="source">
+			</param>
+		</member>
+		<member name="M:OnPlayerClickPlayerTextDraw" syntax="OnPlayerClickPlayerTextDraw(playerid, playertextid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="playertextid">
+				<paraminfo>PlayerText </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerClickTextDraw" syntax="OnPlayerClickTextDraw(playerid, clickedid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="clickedid">
+				<paraminfo>Text </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerCommandText" syntax="OnPlayerCommandText(playerid, cmdtext[])">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="cmdtext">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerConnect" syntax="OnPlayerConnect(playerid)">
+			<attribute name="public"/>
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerDeath" syntax="OnPlayerDeath(playerid, killerid, reason)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="killerid">
+			</param>
+			<param name="reason">
+			</param>
+		</member>
+		<member name="M:OnPlayerDisconnect" syntax="OnPlayerDisconnect(playerid, reason)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="reason">
+			</param>
+		</member>
+		<member name="M:OnPlayerEditAttachedObject" syntax="OnPlayerEditAttachedObject(playerid, response, index, modelid, boneid, fOffsetX, fOffsetY, fOffsetZ, fRotX, fRotY, fRotZ, fScaleX, fScaleY, fScaleZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="index">
+			</param>
+			<param name="modelid">
+			</param>
+			<param name="boneid">
+			</param>
+			<param name="fOffsetX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fOffsetY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fOffsetZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fScaleX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fScaleY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fScaleZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerEditDynamicObject" syntax="OnPlayerEditDynamicObject(playerid, objectid, response, x, y, z, rx, ry, rz)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="objectid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ry">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rz">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerEditObject" syntax="OnPlayerEditObject(playerid, playerobject, objectid, response, fX, fY, fZ, fRotX, fRotY, fRotZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="playerobject">
+			</param>
+			<param name="objectid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterCheckpoint" syntax="OnPlayerEnterCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterDynamicArea" syntax="OnPlayerEnterDynamicArea(playerid, areaid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="areaid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterDynamicCP" syntax="OnPlayerEnterDynamicCP(playerid, checkpointid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="checkpointid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterDynamicRaceCP" syntax="OnPlayerEnterDynamicRaceCP(playerid, checkpointid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="checkpointid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterRaceCheckpoint" syntax="OnPlayerEnterRaceCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterVehicle" syntax="OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="ispassenger">
+			</param>
+		</member>
+		<member name="M:OnPlayerExitVehicle" syntax="OnPlayerExitVehicle(playerid, vehicleid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+		</member>
+		<member name="M:OnPlayerExitedMenu" syntax="OnPlayerExitedMenu(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerFinishedDownloading" syntax="OnPlayerFinishedDownloading(playerid, virtualworld)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="virtualworld">
+			</param>
+		</member>
+		<member name="M:OnPlayerGiveDamage" syntax="OnPlayerGiveDamage(playerid, damagedid, amount, weaponid, bodypart)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="damagedid">
+			</param>
+			<param name="amount">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="bodypart">
+			</param>
+		</member>
+		<member name="M:OnPlayerGiveDamageActor" syntax="OnPlayerGiveDamageActor(playerid, damaged_actorid, amount, weaponid, bodypart)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="damaged_actorid">
+			</param>
+			<param name="amount">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="bodypart">
+			</param>
+		</member>
+		<member name="M:OnPlayerGiveDamageDynamicActor" syntax="OnPlayerGiveDamageDynamicActor(playerid, actorid, amount, weaponid, bodypart)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="actorid">
+			</param>
+			<param name="amount">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="bodypart">
+			</param>
+		</member>
+		<member name="M:OnPlayerInteriorChange" syntax="OnPlayerInteriorChange(playerid, newinteriorid, oldinteriorid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="newinteriorid">
+			</param>
+			<param name="oldinteriorid">
+			</param>
+		</member>
+		<member name="M:OnPlayerKeyStateChange" syntax="OnPlayerKeyStateChange(playerid, newkeys, oldkeys)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="newkeys">
+			</param>
+			<param name="oldkeys">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveCheckpoint" syntax="OnPlayerLeaveCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveDynamicArea" syntax="OnPlayerLeaveDynamicArea(playerid, areaid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="areaid">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveDynamicCP" syntax="OnPlayerLeaveDynamicCP(playerid, checkpointid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="checkpointid">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveDynamicRaceCP" syntax="OnPlayerLeaveDynamicRaceCP(playerid, checkpointid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="checkpointid">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveRaceCheckpoint" syntax="OnPlayerLeaveRaceCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerObjectMoved" syntax="OnPlayerObjectMoved(playerid, objectid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:OnPlayerPickUpDynamicPickup" syntax="OnPlayerPickUpDynamicPickup(playerid, pickupid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="pickupid">
+			</param>
+		</member>
+		<member name="M:OnPlayerPickUpPickup" syntax="OnPlayerPickUpPickup(playerid, pickupid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="pickupid">
+			</param>
+		</member>
+		<member name="M:OnPlayerRequestClass" syntax="OnPlayerRequestClass(playerid, classid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="classid">
+			</param>
+		</member>
+		<member name="M:OnPlayerRequestDownload" syntax="OnPlayerRequestDownload(playerid, type, crc)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="type">
+			</param>
+			<param name="crc">
+			</param>
+		</member>
+		<member name="M:OnPlayerRequestSpawn" syntax="OnPlayerRequestSpawn(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerSelectDynamicObject" syntax="OnPlayerSelectDynamicObject(playerid, objectid, modelid, x, y, z)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="objectid">
+			</param>
+			<param name="modelid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerSelectObject" syntax="OnPlayerSelectObject(playerid, type, objectid, modelid, fX, fY, fZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="type">
+			</param>
+			<param name="objectid">
+			</param>
+			<param name="modelid">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerSelectedMenuRow" syntax="OnPlayerSelectedMenuRow(playerid, row)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="row">
+			</param>
+		</member>
+		<member name="M:OnPlayerShootDynamicObject" syntax="OnPlayerShootDynamicObject(playerid, weaponid, objectid, x, y, z)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="objectid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerSpawn" syntax="OnPlayerSpawn(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerStateChange" syntax="OnPlayerStateChange(playerid, newstate, oldstate)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="newstate">
+			</param>
+			<param name="oldstate">
+			</param>
+		</member>
+		<member name="M:OnPlayerStreamIn" syntax="OnPlayerStreamIn(playerid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerStreamOut" syntax="OnPlayerStreamOut(playerid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerTakeDamage" syntax="OnPlayerTakeDamage(playerid, issuerid, amount, weaponid, bodypart)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="issuerid">
+			</param>
+			<param name="amount">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="bodypart">
+			</param>
+		</member>
+		<member name="M:OnPlayerText" syntax="OnPlayerText(playerid, text[])">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerUpdate" syntax="OnPlayerUpdate(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerWeaponShot" syntax="OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, fX, fY, fZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="hittype">
+			</param>
+			<param name="hitid">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnRconCommand" syntax="OnRconCommand(cmd[])">
+			<stacksize value="1"/>
+			<param name="cmd">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnRconLoginAttempt" syntax="OnRconLoginAttempt(ip[], password[], success)">
+			<stacksize value="1"/>
+			<param name="ip">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="password">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="success">
+			</param>
+		</member>
+		<member name="M:OnTrailerUpdate" syntax="OnTrailerUpdate(playerid, vehicleid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+		</member>
+		<member name="M:OnUnoccupiedVehicleUpdate" syntax="OnUnoccupiedVehicleUpdate(vehicleid, playerid, passenger_seat, new_x, new_y, new_z, vel_x, vel_y, vel_z)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="playerid">
+			</param>
+			<param name="passenger_seat">
+			</param>
+			<param name="new_x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="new_y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="new_z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="vel_x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="vel_y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="vel_z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnVehicleDamageStatusUpdate" syntax="OnVehicleDamageStatusUpdate(vehicleid, playerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnVehicleDeath" syntax="OnVehicleDeath(vehicleid, killerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="killerid">
+			</param>
+		</member>
+		<member name="M:OnVehicleMod" syntax="OnVehicleMod(playerid, vehicleid, componentid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="componentid">
+			</param>
+		</member>
+		<member name="M:OnVehiclePaintjob" syntax="OnVehiclePaintjob(playerid, vehicleid, paintjobid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="paintjobid">
+			</param>
+		</member>
+		<member name="M:OnVehicleRespray" syntax="OnVehicleRespray(playerid, vehicleid, color1, color2)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="color1">
+			</param>
+			<param name="color2">
+			</param>
+		</member>
+		<member name="M:OnVehicleSirenStateChange" syntax="OnVehicleSirenStateChange(playerid, vehicleid, newstate)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="newstate">
+			</param>
+		</member>
+		<member name="M:OnVehicleSpawn" syntax="OnVehicleSpawn(vehicleid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+		</member>
+		<member name="M:OnVehicleStreamIn" syntax="OnVehicleStreamIn(vehicleid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnVehicleStreamOut" syntax="OnVehicleStreamOut(vehicleid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:PawnShop" syntax="PawnShop()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+		</member>
+		<member name="M:PlacasStop" syntax="PlacasStop()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Prefeitura" syntax="Prefeitura()">
+			<stacksize value="21"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObjectEx"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:SetDynamicObjectMaterial" syntax="SetDynamicObjectMaterial(objectid, materialindex, modelid, txdname[], texturename[], materialcolor)">
+			<attribute name="native"/>
+			<referrer name="Hospital_Int"/>
+			<referrer name="pmespint"/>
+			<referrer name="pcesp"/>
+			<referrer name="postonorte"/>
+			<referrer name="postosul"/>
+			<referrer name="caixafederal"/>
+			<referrer name="parque"/>
+			<referrer name="pmesp"/>
+			<referrer name="pcespint"/>
+			<referrer name="Complexo_CA1"/>
+			<referrer name="ApartamentoInt1"/>
+			<referrer name="Apartamento2"/>
+			<referrer name="Apartamento3"/>
+			<referrer name="Barzinho3"/>
+			<referrer name="SonyShop"/>
+			<referrer name="Prefeitura"/>
+			<referrer name="Empresa_1"/>
+			<referrer name="Complexo_1"/>
+			<referrer name="CentralDeEmpregos"/>
+			<referrer name="IgrejaInterior"/>
+			<referrer name="EstudioFM"/>
+			<referrer name="Igreja_1"/>
+			<referrer name="Complexo_9"/>
+			<referrer name="FightRoom"/>
+			<referrer name="StripClub_New"/>
+			<param name="objectid">
+			</param>
+			<param name="materialindex">
+			</param>
+			<param name="modelid">
+			</param>
+			<param name="txdname">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="texturename">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="materialcolor">
+			</param>
+		</member>
+		<member name="M:SetDynamicObjectMaterialText" syntax="SetDynamicObjectMaterialText(objectid, materialindex, text[], materialsize, fontface[], fontsize, bold, fontcolor, backcolor, textalignment)">
+			<attribute name="native"/>
+			<referrer name="parque"/>
+			<referrer name="Barzinho3"/>
+			<referrer name="SonyShop"/>
+			<param name="objectid">
+			</param>
+			<param name="materialindex">
+			</param>
+			<param name="text">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="materialsize">
+			</param>
+			<param name="fontface">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="fontsize">
+			</param>
+			<param name="bold">
+			</param>
+			<param name="fontcolor">
+			</param>
+			<param name="backcolor">
+			</param>
+			<param name="textalignment">
+			</param>
+		</member>
+		<member name="M:SetDynamicObjectPos" syntax="SetDynamicObjectPos(objectid, x, y, z)">
+			<attribute name="native"/>
+			<referrer name="CA_SetObjectPos_DC"/>
+			<param name="objectid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetDynamicObjectRot" syntax="SetDynamicObjectRot(objectid, rx, ry, rz)">
+			<attribute name="native"/>
+			<referrer name="CA_SetObjectRot_DC"/>
+			<param name="objectid">
+			</param>
+			<param name="rx">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="ry">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="rz">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetObjectPos" syntax="SetObjectPos(objectid, X, Y, Z)">
+			<attribute name="native"/>
+			<referrer name="CA_SetObjectPos_DC"/>
+			<param name="objectid">
+			</param>
+			<param name="X">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="Z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetObjectRot" syntax="SetObjectRot(objectid, RotX, RotY, RotZ)">
+			<attribute name="native"/>
+			<referrer name="CA_SetObjectRot_DC"/>
+			<param name="objectid">
+			</param>
+			<param name="RotX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="RotY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="RotZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:Shopping" syntax="Shopping()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:SonyShop" syntax="SonyShop()">
+			<stacksize value="21"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObjectEx"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="SetDynamicObjectMaterialText"/>
+		</member>
+		<member name="M:Streamer_OnItemStreamIn" syntax="Streamer_OnItemStreamIn(type, id)">
+			<stacksize value="1"/>
+			<param name="type">
+			</param>
+			<param name="id">
+				<paraminfo> {Text3D,_} </paraminfo>
+			</param>
+		</member>
+		<member name="M:Streamer_OnItemStreamOut" syntax="Streamer_OnItemStreamOut(type, id)">
+			<stacksize value="1"/>
+			<param name="type">
+			</param>
+			<param name="id">
+				<paraminfo> {Text3D,_} </paraminfo>
+			</param>
+		</member>
+		<member name="M:Streamer_OnPluginError" syntax="Streamer_OnPluginError(error[])">
+			<stacksize value="1"/>
+			<param name="error">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:StripClub_New" syntax="StripClub_New()">
+			<stacksize value="17"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+		</member>
+		<member name="M:VectorSize" syntax="VectorSize(x, y, z)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="CA_GetRoomCenter"/>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:WeaponHouse_1" syntax="WeaponHouse_1()">
+			<stacksize value="16"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:caixafederal" syntax="caixafederal()">
+			<stacksize value="17"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:docas" syntax="docas()">
+			<stacksize value="17"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CA_CreateDynamicObject_SC"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:float" syntax="float(value)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator*(Float:,_:)"/>
+			<referrer name="operator/(Float:,_:)"/>
+			<referrer name="operator/(_:,Float:)"/>
+			<referrer name="operator+(Float:,_:)"/>
+			<referrer name="operator-(Float:,_:)"/>
+			<referrer name="operator-(_:,Float:)"/>
+			<referrer name="operator==(Float:,_:)"/>
+			<referrer name="operator!=(Float:,_:)"/>
+			<referrer name="operator&gt;(Float:,_:)"/>
+			<referrer name="operator&gt;(_:,Float:)"/>
+			<referrer name="operator&gt;=(Float:,_:)"/>
+			<referrer name="operator&gt;=(_:,Float:)"/>
+			<referrer name="operator&lt;(Float:,_:)"/>
+			<referrer name="operator&lt;(_:,Float:)"/>
+			<referrer name="operator&lt;=(Float:,_:)"/>
+			<referrer name="operator&lt;=(_:,Float:)"/>
+			<param name="value">
+			</param>
+		</member>
+		<member name="M:floatabs" syntax="floatabs(value)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="CA_GetRoomCenter"/>
+			<param name="value">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatadd" syntax="floatadd(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator+(Float:,_:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatcmp" syntax="floatcmp(oper1, oper2)">
+			<attribute name="native"/>
+			<referrer name="operator==(Float:,Float:)"/>
+			<referrer name="operator==(Float:,_:)"/>
+			<referrer name="operator!=(Float:,Float:)"/>
+			<referrer name="operator!=(Float:,_:)"/>
+			<referrer name="operator&gt;(Float:,Float:)"/>
+			<referrer name="operator&gt;(Float:,_:)"/>
+			<referrer name="operator&gt;(_:,Float:)"/>
+			<referrer name="operator&gt;=(Float:,Float:)"/>
+			<referrer name="operator&gt;=(Float:,_:)"/>
+			<referrer name="operator&gt;=(_:,Float:)"/>
+			<referrer name="operator&lt;(Float:,Float:)"/>
+			<referrer name="operator&lt;(Float:,_:)"/>
+			<referrer name="operator&lt;(_:,Float:)"/>
+			<referrer name="operator&lt;=(Float:,Float:)"/>
+			<referrer name="operator&lt;=(Float:,_:)"/>
+			<referrer name="operator&lt;=(_:,Float:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatcos" syntax="floatcos(value, mode)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="CA_RayCastExplode"/>
+			<referrer name="CA_IsPlayerNearWater"/>
+			<referrer name="CA_IsPlayerFacingWater"/>
+			<referrer name="CA_IsPlayerBlocked"/>
+			<referrer name="CA_GetRoomCenter"/>
+			<param name="value">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="mode">
+				<paraminfo>anglemode </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatdiv" syntax="floatdiv(dividend, divisor)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator/(Float:,_:)"/>
+			<referrer name="operator/(_:,Float:)"/>
+			<param name="dividend">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="divisor">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatmul" syntax="floatmul(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator*(Float:,_:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatround" syntax="floatround(value, method)">
+			<attribute name="native"/>
+			<referrer name="CA_RayCastExplode"/>
+			<param name="value">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="method">
+				<paraminfo>floatround_method </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatsin" syntax="floatsin(value, mode)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="CA_RayCastExplode"/>
+			<referrer name="CA_IsPlayerNearWater"/>
+			<referrer name="CA_IsPlayerFacingWater"/>
+			<referrer name="CA_IsPlayerBlocked"/>
+			<referrer name="CA_GetRoomCenter"/>
+			<param name="value">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="mode">
+				<paraminfo>anglemode </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatsqroot" syntax="floatsqroot(value)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="CA_GetRoomHeight"/>
+			<param name="value">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:floatsub" syntax="floatsub(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator-(Float:,_:)"/>
+			<referrer name="operator-(_:,Float:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:funcidx" syntax="funcidx(name[])">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptExit"/>
+			<referrer name="OnGameModeExit"/>
+			<param name="name">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:parque" syntax="parque()">
+			<stacksize value="21"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="CreateDynamicObjectEx"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="SetDynamicObjectMaterialText"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:pcesp" syntax="pcesp()">
+			<stacksize value="17"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:pcespint" syntax="pcespint()">
+			<stacksize value="17"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:pmesp" syntax="pmesp()">
+			<stacksize value="17"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:pmespint" syntax="pmespint()">
+			<stacksize value="17"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:postonorte" syntax="postonorte()">
+			<stacksize value="17"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:postosul" syntax="postosul()">
+			<stacksize value="21"/>
+			<referrer name="OnFilterScriptInit"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="CreateDynamicObjectEx"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:print" syntax="print(string[])">
+			<attribute name="native"/>
+			<referrer name="Hospital_Int"/>
+			<referrer name="pmespint"/>
+			<referrer name="pcesp"/>
+			<referrer name="postonorte"/>
+			<referrer name="postosul"/>
+			<referrer name="caixafederal"/>
+			<referrer name="docas"/>
+			<referrer name="parque"/>
+			<referrer name="pmesp"/>
+			<referrer name="pcespint"/>
+			<referrer name="ApartamentoInt1"/>
+			<referrer name="Apartamento2"/>
+			<referrer name="Apartamento3"/>
+			<referrer name="Barzinho1"/>
+			<referrer name="Barzinho2"/>
+			<referrer name="Barzinho3"/>
+			<referrer name="Prefeitura"/>
+			<referrer name="Empresa_1"/>
+			<referrer name="Complexo_1"/>
+			<referrer name="Complexo_2"/>
+			<referrer name="Complexo_3"/>
+			<referrer name="Complexo_4"/>
+			<referrer name="DrugHouse_1"/>
+			<referrer name="Loja_Eletronicos"/>
+			<referrer name="Casas_Empresas_Vazios"/>
+			<referrer name="Complexo_5"/>
+			<referrer name="Lavanderia_P"/>
+			<referrer name="CentralDeEmpregos"/>
+			<referrer name="CoberturaComPiscina"/>
+			<referrer name="IgrejaInterior"/>
+			<referrer name="PlacasStop"/>
+			<referrer name="Interior_Estudio"/>
+			<referrer name="Complexo_7"/>
+			<referrer name="Shopping"/>
+			<referrer name="WeaponHouse_1"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+
+	</members>
+</doc>

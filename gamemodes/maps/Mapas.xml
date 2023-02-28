@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="file:///C|/Users/Yur$/Desktop/São Paulo Roleplay (Gamemode)/pawno/xml/pawndoc.xsl" type="text/xsl"?>
+<doc source="c:\Users\Yur$\Desktop\São Paulo Roleplay (Gamemode)\gamemodes\maps\Mapas.pwn">
+	<assembly>
+		<name>Mapas.pwn</name>
+	</assembly>
+	<members>
+
+		<!-- enumerations -->
+
+		<!-- constants -->
+
+		<!-- variables -->
+
+		<!-- functions -->
+		<member name="M:Apartamento2" syntax="Apartamento2()">
+			<stacksize value="13"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Apartamento3" syntax="Apartamento3()">
+			<stacksize value="15"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:ApartamentoInt1" syntax="ApartamentoInt1()">
+			<stacksize value="11"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Barzinho1" syntax="Barzinho1()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Barzinho2" syntax="Barzinho2()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Barzinho3" syntax="Barzinho3()">
+			<stacksize value="1997"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="SetDynamicObjectMaterialText"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:BoxLocal" syntax="BoxLocal()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+		</member>
+		<member name="M:CA_CreateDynamicObject_SC" syntax="CA_CreateDynamicObject_SC()">
+			<stacksize value="1"/>
+			<referrer name="docas"/>
+		</member>
+		<member name="M:Casas_Empresas_Vazios" syntax="Casas_Empresas_Vazios()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:CentralDeEmpregos" syntax="CentralDeEmpregos()">
+			<stacksize value="11"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:CoberturaComPiscina" syntax="CoberturaComPiscina()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Complexo_1" syntax="Complexo_1()">
+			<stacksize value="54"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Complexo_2" syntax="Complexo_2()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Complexo_3" syntax="Complexo_3()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Complexo_4" syntax="Complexo_4()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Complexo_5" syntax="Complexo_5()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Complexo_7" syntax="Complexo_7()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Complexo_8" syntax="Complexo_8()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+		</member>
+		<member name="M:Complexo_9" syntax="Complexo_9()">
+			<stacksize value="92"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+		</member>
+		<member name="M:Complexo_CA1" syntax="Complexo_CA1()">
+			<stacksize value="17"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+		</member>
+		<member name="M:CreateDynamicObject" syntax="CreateDynamicObject()">
+			<stacksize value="1"/>
+			<referrer name="pmespint"/>
+			<referrer name="pcesp"/>
+			<referrer name="postonorte"/>
+			<referrer name="postosul"/>
+			<referrer name="caixafederal"/>
+			<referrer name="parque"/>
+			<referrer name="pmesp"/>
+			<referrer name="pcespint"/>
+			<referrer name="Complexo_CA1"/>
+			<referrer name="ApartamentoInt1"/>
+			<referrer name="Apartamento2"/>
+			<referrer name="Apartamento3"/>
+			<referrer name="Barzinho1"/>
+			<referrer name="Barzinho2"/>
+			<referrer name="Barzinho3"/>
+			<referrer name="Empresa_1"/>
+			<referrer name="Complexo_1"/>
+			<referrer name="Complexo_2"/>
+			<referrer name="Complexo_3"/>
+			<referrer name="Complexo_4"/>
+			<referrer name="DrugHouse_1"/>
+			<referrer name="Loja_Eletronicos"/>
+			<referrer name="Casas_Empresas_Vazios"/>
+			<referrer name="Complexo_5"/>
+			<referrer name="Lavanderia_P"/>
+			<referrer name="CentralDeEmpregos"/>
+			<referrer name="CoberturaComPiscina"/>
+			<referrer name="IgrejaInterior"/>
+			<referrer name="PlacasStop"/>
+			<referrer name="Interior_Estudio"/>
+			<referrer name="Complexo_7"/>
+			<referrer name="Mapas_Desbugados"/>
+			<referrer name="Shopping"/>
+			<referrer name="PawnShop"/>
+			<referrer name="EstudioFM"/>
+			<referrer name="Igreja_1"/>
+			<referrer name="BoxLocal"/>
+			<referrer name="Complexo_8"/>
+			<referrer name="Complexo_9"/>
+			<referrer name="WeaponHouse_1"/>
+			<referrer name="FightRoom"/>
+			<referrer name="StripClub_New"/>
+		</member>
+		<member name="M:CreateDynamicObjectEx" syntax="CreateDynamicObjectEx()">
+			<stacksize value="1"/>
+			<referrer name="Hospital_Int"/>
+			<referrer name="parque"/>
+			<referrer name="SonyShop"/>
+			<referrer name="Prefeitura"/>
+		</member>
+		<member name="M:DrugHouse_1" syntax="DrugHouse_1()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Empresa_1" syntax="Empresa_1()">
+			<stacksize value="11"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:EstudioFM" syntax="EstudioFM()">
+			<stacksize value="11"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+		</member>
+		<member name="M:FightRoom" syntax="FightRoom()">
+			<stacksize value="16"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+		</member>
+		<member name="M:Hospital_Int" syntax="Hospital_Int()">
+			<stacksize value="13"/>
+			<dependency name="CreateDynamicObjectEx"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:IgrejaInterior" syntax="IgrejaInterior()">
+			<stacksize value="11"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Igreja_1" syntax="Igreja_1()">
+			<stacksize value="11"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+		</member>
+		<member name="M:Interior_Estudio" syntax="Interior_Estudio()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Lavanderia_P" syntax="Lavanderia_P()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Loja_Eletronicos" syntax="Loja_Eletronicos()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Mapas_Desbugados" syntax="Mapas_Desbugados()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+		</member>
+		<member name="M:PawnShop" syntax="PawnShop()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+		</member>
+		<member name="M:PlacasStop" syntax="PlacasStop()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:Prefeitura" syntax="Prefeitura()">
+			<stacksize value="13"/>
+			<dependency name="CreateDynamicObjectEx"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:SetDynamicObjectMaterial" syntax="SetDynamicObjectMaterial()">
+			<stacksize value="1"/>
+			<referrer name="Hospital_Int"/>
+			<referrer name="pmespint"/>
+			<referrer name="pcesp"/>
+			<referrer name="postonorte"/>
+			<referrer name="postosul"/>
+			<referrer name="caixafederal"/>
+			<referrer name="parque"/>
+			<referrer name="pmesp"/>
+			<referrer name="pcespint"/>
+			<referrer name="Complexo_CA1"/>
+			<referrer name="ApartamentoInt1"/>
+			<referrer name="Apartamento2"/>
+			<referrer name="Apartamento3"/>
+			<referrer name="Barzinho3"/>
+			<referrer name="SonyShop"/>
+			<referrer name="Prefeitura"/>
+			<referrer name="Empresa_1"/>
+			<referrer name="Complexo_1"/>
+			<referrer name="CentralDeEmpregos"/>
+			<referrer name="IgrejaInterior"/>
+			<referrer name="EstudioFM"/>
+			<referrer name="Igreja_1"/>
+			<referrer name="Complexo_9"/>
+			<referrer name="FightRoom"/>
+			<referrer name="StripClub_New"/>
+		</member>
+		<member name="M:SetDynamicObjectMaterialText" syntax="SetDynamicObjectMaterialText()">
+			<stacksize value="1"/>
+			<referrer name="parque"/>
+			<referrer name="Barzinho3"/>
+			<referrer name="SonyShop"/>
+		</member>
+		<member name="M:Shopping" syntax="Shopping()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:SonyShop" syntax="SonyShop()">
+			<stacksize value="14"/>
+			<dependency name="CreateDynamicObjectEx"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="SetDynamicObjectMaterialText"/>
+		</member>
+		<member name="M:StripClub_New" syntax="StripClub_New()">
+			<stacksize value="16"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+		</member>
+		<member name="M:WeaponHouse_1" syntax="WeaponHouse_1()">
+			<stacksize value="10"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:caixafederal" syntax="caixafederal()">
+			<stacksize value="16"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:docas" syntax="docas()">
+			<stacksize value="10"/>
+			<dependency name="CA_CreateDynamicObject_SC"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:parque" syntax="parque()">
+			<stacksize value="16"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="CreateDynamicObjectEx"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="SetDynamicObjectMaterialText"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:pcesp" syntax="pcesp()">
+			<stacksize value="16"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:pcespint" syntax="pcespint()">
+			<stacksize value="16"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:pmesp" syntax="pmesp()">
+			<stacksize value="16"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:pmespint" syntax="pmespint()">
+			<stacksize value="16"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:postonorte" syntax="postonorte()">
+			<stacksize value="16"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:postosul" syntax="postosul()">
+			<stacksize value="16"/>
+			<dependency name="CreateDynamicObject"/>
+			<dependency name="SetDynamicObjectMaterial"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:print" syntax="print()">
+			<stacksize value="1"/>
+			<referrer name="Hospital_Int"/>
+			<referrer name="pmespint"/>
+			<referrer name="pcesp"/>
+			<referrer name="postonorte"/>
+			<referrer name="postosul"/>
+			<referrer name="caixafederal"/>
+			<referrer name="docas"/>
+			<referrer name="parque"/>
+			<referrer name="pmesp"/>
+			<referrer name="pcespint"/>
+			<referrer name="ApartamentoInt1"/>
+			<referrer name="Apartamento2"/>
+			<referrer name="Apartamento3"/>
+			<referrer name="Barzinho1"/>
+			<referrer name="Barzinho2"/>
+			<referrer name="Barzinho3"/>
+			<referrer name="Prefeitura"/>
+			<referrer name="Empresa_1"/>
+			<referrer name="Complexo_1"/>
+			<referrer name="Complexo_2"/>
+			<referrer name="Complexo_3"/>
+			<referrer name="Complexo_4"/>
+			<referrer name="DrugHouse_1"/>
+			<referrer name="Loja_Eletronicos"/>
+			<referrer name="Casas_Empresas_Vazios"/>
+			<referrer name="Complexo_5"/>
+			<referrer name="Lavanderia_P"/>
+			<referrer name="CentralDeEmpregos"/>
+			<referrer name="CoberturaComPiscina"/>
+			<referrer name="IgrejaInterior"/>
+			<referrer name="PlacasStop"/>
+			<referrer name="Interior_Estudio"/>
+			<referrer name="Complexo_7"/>
+			<referrer name="Shopping"/>
+			<referrer name="WeaponHouse_1"/>
+		</member>
+
+	</members>
+</doc>

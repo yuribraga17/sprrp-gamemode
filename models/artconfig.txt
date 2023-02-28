@@ -1,0 +1,270 @@
+
+//Skins civis
+	//Masculinas
+AddCharModel(29, 20500, "mas.dff", "mas.txd");
+AddCharModel(29, 20501, "mas2.dff", "mas2.txd");
+AddCharModel(29, 20502, "mas3.dff", "mas3.txd");
+AddCharModel(29, 20503, "mas4.dff", "mas4.txd");
+AddCharModel(29, 20504, "mas5.dff", "mas5.txd");
+AddCharModel(29, 20505, "mas6.dff", "mas6.txd");
+AddCharModel(29, 20506, "mas7.dff", "mas7.txd");
+AddCharModel(29, 20507, "mas8.dff", "mas8.txd");
+AddCharModel(29, 20508, "mas9.dff", "mas9.txd");
+AddCharModel(29, 20509, "mas10.dff", "mas10.txd");
+AddCharModel(29, 20510, "mas11.dff", "mas11.txd");
+AddCharModel(29, 20511, "mas12.dff", "mas12.txd");
+AddCharModel(29, 20512, "mas13.dff", "mas13.txd");
+AddCharModel(29, 20513, "mas14.dff", "mas14.txd");
+AddCharModel(29, 20514, "mas15.dff", "mas15.txd");
+AddCharModel(29, 20515, "mas16.dff", "mas16.txd");
+AddCharModel(29, 20516, "mas17.dff", "mas17.txd");
+AddCharModel(29, 20517, "mas18.dff", "mas18.txd");
+AddCharModel(29, 20518, "mas19.dff", "mas19.txd");
+AddCharModel(29, 20519, "mas20.dff", "mas20.txd");
+AddCharModel(29, 20520, "mas21.dff", "mas21.txd");
+AddCharModel(29, 20521, "mas22.dff", "mas22.txd");
+AddCharModel(29, 20522, "mas23.dff", "mas23.txd");
+AddCharModel(29, 20523, "mas24.dff", "mas24.txd");
+AddCharModel(29, 20524, "mas25.dff", "mas25.txd");
+AddCharModel(29, 20525, "mas26.dff", "mas26.txd");
+AddCharModel(29, 20526, "mas27.dff", "mas27.txd");
+AddCharModel(29, 20527, "mas28.dff", "mas28.txd");
+AddCharModel(29, 20528, "mas29.dff", "mas29.txd");
+AddCharModel(29, 20529, "mas30.dff", "mas30.txd");
+AddCharModel(29, 20530, "mas31.dff", "mas31.txd");
+AddCharModel(29, 20531, "mas32.dff", "mas32.txd");
+AddCharModel(29, 20532, "mas33.dff", "mas33.txd");
+AddCharModel(29, 20533, "mas34.dff", "mas34.txd");
+AddCharModel(29, 20534, "mas35.dff", "mas35.txd");
+AddCharModel(29, 20535, "mas36.dff", "mas36.txd");
+AddCharModel(29, 20536, "mas37.dff", "mas37.txd");
+AddCharModel(29, 20537, "rockeiro.dff", "rockeiro.txd");
+AddCharModel(29, 20538, "adidas.dff", "adidas.txd");
+AddCharModel(29, 20539, "adidasmoleton.dff", "adidasmoleton.txd");
+AddCharModel(29, 20540, "lacostesocial.dff", "lacostesocial.txd");
+AddCharModel(29, 20541, "nikefat.dff", "nikefat.txd");
+AddCharModel(29, 20542, "supremeblack.dff", "supremeblack.txd");
+AddCharModel(29, 20543, "supremewhite.dff", "supremewhite.txd");
+AddCharModel(29, 20544, "corinthians.dff", "corinthians.txd");
+AddCharModel(29, 20545, "gremio.dff", "gremio.txd");
+AddCharModel(29, 20546, "river.dff", "river.txd");
+AddCharModel(29, 20547, "santos.dff", "santos.txd");
+AddCharModel(29, 20548, "cruzeiro.dff", "cruzeiro.txd");
+AddCharModel(29, 20549, "fluminense.dff", "fluminense.txd");
+AddCharModel(29, 20550, "spfc.dff", "spfc.txd");
+AddCharModel(29, 20551, "barcelona.dff", "barcelona.txd");
+AddCharModel(29, 20552, "chelsea.dff", "chelsea.txd");
+AddCharModel(29, 20553, "corinthians2.dff", "corinthians2.txd");
+AddCharModel(29, 20554, "palmeiras.dff", "palmeiras.txd");
+AddCharModel(29, 20555, "skincivil8.dff", "skincivil8.txd");
+AddCharModel(29, 20556, "skincivil11.dff", "skincivil11.txd");
+AddCharModel(29, 20557, "skincivil19.dff", "skincivil19.txd");
+AddCharModel(29, 20558, "skincivil26.dff", "skincivil26.txd");
+AddCharModel(29, 20559, "skincivil30.dff", "skincivil30.txd");
+AddCharModel(29, 20560, "skincivil32.dff", "skincivil32.txd");
+AddCharModel(29, 20561, "skincivil36.dff", "skincivil36.txd");
+AddCharModel(29, 20562, "skincivil39.dff", "skincivil39.txd");
+AddCharModel(29, 20563, "skincivil50.dff", "skincivil50.txd");
+AddCharModel(29, 20564, "skincivil55.dff", "skincivil55.txd");
+AddCharModel(29, 20565, "skincivil68.dff", "skincivil68.txd");
+AddCharModel(29, 20567, "skincivil72.dff", "skincivil72.txd");
+AddCharModel(29, 20568, "skincivil73.dff", "skincivil73.txd");
+AddCharModel(29, 20569, "skincivil74.dff", "skincivil74.txd");
+AddCharModel(29, 20570, "skincivil76.dff", "skincivil76.txd");
+AddCharModel(29, 20571, "skincivil81.dff", "skincivil81.txd");
+AddCharModel(29, 20572, "skincivil83.dff", "skincivil83.txd");
+
+	//Femininas
+AddCharModel(93, 20600, "fem.dff", "fem.txd");
+AddCharModel(93, 20601, "fem2.dff", "fem2.txd");
+AddCharModel(93, 20602, "fem3.dff", "fem3.txd");
+AddCharModel(93, 20603, "fem4.dff", "fem4.txd");
+AddCharModel(93, 20604, "fem5.dff", "fem5.txd");
+AddCharModel(93, 20605, "fem6.dff", "fem6.txd");
+AddCharModel(93, 20606, "fem7.dff", "fem7.txd");
+AddCharModel(93, 20607, "fem8.dff", "fem8.txd");
+AddCharModel(93, 20608, "fem1.dff", "fem1.txd");
+AddCharModel(93, 20609, "pelada1.dff", "pelada1.txd");
+AddCharModel(93, 20610, "pelada2.dff", "pelada2.txd");
+AddCharModel(93, 20611, "pelada3.dff", "pelada3.txd");
+AddCharModel(93, 20612, "femsocial.dff", "femsocial.txd");
+AddCharModel(93, 20613, "skinfcivil5.dff", "skinfcivil5.txd");
+AddCharModel(93, 20614, "skinfcivil6.dff", "skinfcivil6.txd");
+AddCharModel(93, 20615, "skinfcivil8.dff", "skinfcivil8.txd");
+AddCharModel(93, 20616, "skinfcivil10.dff", "skinfcivil10.txd");
+AddCharModel(93, 20617, "skinfcivil12.dff", "skinfcivil12.txd");
+AddCharModel(93, 20618, "skinfcivil16.dff", "skinfcivil16.txd");
+AddCharModel(93, 200619, "skinfcivil18.dff", "skinfcivil18.txd");
+AddCharModel(93, 200620, "skincivil84.dff", "skincivil84.txd");
+
+//Skins policiais
+	//pmesp
+AddCharModel(280, 20100, "pmesp.dff", "pmesp.txd");
+AddCharModel(280, 20101, "pmesp2.dff", "pmesp2.txd");
+AddCharModel(280, 20102, "pmesp3.dff", "pmesp3.txd");
+AddCharModel(280, 20103, "pmesp4.dff", "pmesp4.txd");
+AddCharModel(280, 20104, "pmesp5.dff", "pmesp5.txd");
+AddCharModel(280, 20105, "pmesp6.dff", "pmesp6.txd");
+AddCharModel(280, 20106, "pmesp7.dff", "pmesp7.txd");
+AddCharModel(280, 20107, "pmesp8.dff", "pmesp8.txd");
+AddCharModel(280, 20108, "pmesp9.dff", "pmesp9.txd");
+AddCharModel(280, 20109, "pmesp10.dff", "pmesp10.txd");
+AddCharModel(280, 20110, "pmesp11.dff", "pmesp11.txd");
+AddCharModel(280, 20111, "pmesp12.dff", "pmesp12.txd");
+AddCharModel(280, 20112, "pmesp13.dff", "pmesp13.txd");
+AddCharModel(280, 20113, "pmesp14.dff", "pmesp14.txd");
+AddCharModel(280, 20114, "pmesp15.dff", "pmesp15.txd");
+AddCharModel(280, 20115, "pmesp16.dff", "pmesp16.txd");
+AddCharModel(280, 20116, "pmesp17.dff", "pmesp17.txd");
+AddCharModel(280, 20117, "pmesp18.dff", "pmesp18.txd");
+AddCharModel(280, 20118, "pmesp19.dff", "pmesp19.txd");
+AddCharModel(280, 20119, "pmesp20.dff", "pmesp20.txd");
+AddCharModel(280, 20120, "pmesp21.dff", "pmesp21.txd");
+AddCharModel(280, 20121, "pmesp22.dff", "pmesp22.txd");
+AddCharModel(280, 20122, "pmesp23.dff", "pmesp23.txd");
+AddCharModel(280, 20123, "pmesp24.dff", "pmesp24.txd");
+AddCharModel(280, 20124, "pmesp25.dff", "pmesp25.txd");
+AddCharModel(280, 20125, "pmesp26.dff", "pmesp26.txd");
+AddCharModel(280, 20126, "pmesp27.dff", "pmesp27.txd");
+AddCharModel(280, 20127, "pmesp28.dff", "pmesp28.txd");
+AddCharModel(280, 20128, "pmesp29.dff", "pmesp29.txd");
+AddCharModel(280, 20129, "pmesp30.dff", "pmesp30.txd");
+AddCharModel(280, 20130, "pmesp31.dff", "pmesp31.txd");
+AddCharModel(280, 20131, "pmesp32.dff", "pmesp32.txd");
+AddCharModel(280, 20132, "pmesp33.dff", "pmesp33.txd");
+AddCharModel(280, 20133, "pmesp34.dff", "pmesp34.txd");
+AddCharModel(280, 20134, "pmesp35.dff", "pmesp35.txd");
+AddCharModel(280, 20135, "pmesp36.dff", "pmesp36.txd");
+AddCharModel(280, 20136, "pmesp37.dff", "pmesp37.txd");
+AddCharModel(280, 20137, "pmesp38.dff", "pmesp38.txd");
+AddCharModel(280, 20138, "pmesp39.dff", "pmesp39.txd");
+AddCharModel(280, 20139, "pmesp40.dff", "pmesp40.txd");
+AddCharModel(280, 20140, "pmesp41.dff", "pmesp41.txd");
+AddCharModel(280, 20141, "pmesp42.dff", "pmesp42.txd");
+AddCharModel(280, 20142, "pmesp43.dff", "pmesp43.txd");
+AddCharModel(280, 20143, "pmesp44.dff", "pmesp44.txd");
+AddCharModel(280, 20144, "pmesp45.dff", "pmesp45.txd");
+AddCharModel(280, 20145, "pmesp46.dff", "pmesp46.txd");
+AddCharModel(280, 20146, "pmesp47.dff", "pmesp47.txd");
+AddCharModel(280, 20147, "pmesp48.dff", "pmesp48.txd");
+AddCharModel(280, 20148, "pmesp49.dff", "pmesp49.txd");
+AddCharModel(280, 20149, "pmesp50.dff", "pmesp50.txd");
+AddCharModel(280, 20150, "pmesp51.dff", "pmesp51.txd");
+
+	//PCESP
+AddCharModel(305, 20200, "pc1.dff", "pc1.txd");
+AddCharModel(305, 20201, "pc2.dff", "pc2.txd");
+AddCharModel(305, 20202, "pcf1.dff", "pcf1.txd");
+
+	//CBESP
+AddCharModel(305, 20300, "gb1.dff", "gb1.txd");
+AddCharModel(305, 20301, "gb2.dff", "gb2.txd");
+AddCharModel(305, 20302, "gb3.dff", "gb3.txd");
+AddCharModel(305, 20303, "gb4.dff", "gb4.txd");
+AddCharModel(305, 20304, "gb5.dff", "gb5.txd");
+AddCharModel(305, 20305, "gb6.dff", "gb6.txd");
+AddCharModel(93, 20306, "gbf1.dff", "gbf1.txd");
+AddCharModel(93, 20307, "gbf2.dff", "gbf2.txd");
+AddCharModel(305, 20308, "gbr1.dff", "gbr1.txd");
+AddCharModel(305, 20309, "gbr2.dff", "gbr2.txd");
+AddCharModel(93, 20310, "gbf3.dff", "gbf3.txd");
+AddCharModel(93, 20311, "gbf4.dff", "gbf4.txd");
+AddCharModel(305, 20312, "gb7.dff", "gb7.txd");
+AddCharModel(305, 20313, "gb8.dff", "gb8.txd");
+AddCharModel(305, 20314, "gb9.dff", "gb9.txd");
+AddCharModel(305, 20315, "gb10.dff", "gb10.txd");
+AddCharModel(305, 20316, "gb11.dff", "gb11.txd");
+AddCharModel(305, 20317, "gb12.dff", "gb12.txd");
+AddCharModel(305, 20318, "gb13.dff", "gb13.txd");
+AddCharModel(305, 20319, "gb14.dff", "gb14.txd");
+
+//mapas civis
+AddSimpleModel(-1,12843, -1001, "caixa.dff", "caixa.txd");
+AddSimpleModel(-1,12843, -1002, "caixa1.dff", "caixa.txd");
+AddSimpleModel(-1,19369, -1040, "posto.dff", "posto.txd");
+AddSimpleModel(-1,19369, -1041, "posto1.dff", "posto.txd");
+AddSimpleModel(-1,19369, -1015, "craco.dff", "craco.txd");
+AddSimpleModel(-1,19369, -1016, "craco2.dff", "craco.txd"); 
+AddSimpleModel(-1,1375, -1005, "lomb_sign.dff", "lomb.txd"); 
+AddSimpleModel(-1,19425, -1006, "lomb-a.dff", "lomb.txd"); 
+AddSimpleModel(-1,19425, -1007, "lomb-ad.dff", "lomb.txd"); 
+AddSimpleModel(-1,19425, -1008, "lomb-b.dff", "lomb.txd"); 
+AddSimpleModel(-1,19425, -1009, "lomb-bd.dff", "lomb.txd"); 
+AddSimpleModel(-1,19425, -1010, "lomb-c.dff", "lomb.txd"); 
+AddSimpleModel(-1,19425, -1012, "lomb-cd.dff", "lomb.txd"); 
+AddSimpleModel(-1,19425, -1013, "lomb-d.dff", "lomb.txd"); 
+AddSimpleModel(-1,19425, -1014, "lomb-dd.dff", "lomb.txd");
+AddSimpleModel(-1,19379, -1030, "lawrence1.dff", "lawrence.txd");
+AddSimpleModel(-1,19379, -1031, "lawrence2.dff", "lawrence.txd");
+AddSimpleModel(-1,19379, -1032, "lawrence3.dff", "lawrence.txd");
+AddSimpleModel(-1,19379, -1033, "lawrence4.dff", "lawrence.txd");
+AddSimpleModel(-1,19379, -1034, "lawrence5.dff", "lawrence.txd");
+AddSimpleModel(-1,19379, -1025, "postoip.dff", "postoip.txd");
+AddSimpleModel(-1,19379, -1036, "comunidade.dff", "comunidade.txd");
+AddSimpleModel(-1,3980, -1037, "prefeitura.dff", "prefeitura.txd");
+AddSimpleModel(-1,19379, -1038, "prefeiturabase.dff", "prefeiturabase.txd");
+AddSimpleModel(-1,19379, -1039, "CBM.dff", "CBM.txd");
+AddSimpleModel(-1,19379, -1042, "CBMfloor.dff", "CBM.txd");
+AddSimpleModel(-1,19379, -1043, "CBMgate.dff", "CBM.txd");
+AddSimpleModel(-1,19379, -1051, "cachaca.dff", "cachaca.txd");
+AddSimpleModel(-1,19379, -1050, "mesacachaca.dff", "cachaca.txd");
+AddSimpleModel(-1,19379, -1060, "patio.dff", "patio.txd");
+AddSimpleModel(-1,19379, -1061, "patiogate.dff", "patio.txd");
+AddSimpleModel(-1,5033,-2900,"unity_open.dff","union_las.txd");//unity art object
+AddSimpleModel(-1,5055,-2901,"unity_open_land.dff","union_las.txd");//unity land art object
+
+
+//PMESP
+AddSimpleModel(-1,12843, -1046, "bpm.dff", "bpm.txd");
+AddSimpleModel(-1,12843, -1047, "portao1bpm.dff", "bpm.txd");
+AddSimpleModel(-1,12843, -1048, "portao2bpm.dff", "bpm.txd");
+
+//PCESP
+AddSimpleModel(-1,19369, -5006, "pc.dff", "pc.txd");
+
+//Objetos PMESP
+AddSimpleModel(-1,19521, -2101, "bodycam.dff", "casquetebody.txd")
+AddSimpleModel(-1,19142, -2102, "coletepmesp.dff", "coletepmesp.txd")
+AddSimpleModel(-1,3026, -2103, "band.dff", "band.txd");
+AddSimpleModel(-1,19141, -2104, "capgrpae.dff", "capgrpae.txd");
+AddSimpleModel(-1,18637, -2108, "escudo.dff", "escudo.txd");
+AddSimpleModel(-1,19141, -2106, "capcdc.dff", "capcdc.txd");
+AddSimpleModel(-1,19099, -2107, "casquete.dff", "casquete.txd");
+
+//Objetos PCESP
+AddSimpleModel(-1,19142, -2200, "coletepcesp.dff", "coletepcesp.txd")
+
+//Objetos civis
+AddSimpleModel(-1, 1300, -2000, "octagonal.dff", "pare-pedagio.txd");
+AddSimpleModel(-1,12843, -2001, "guardachuva.dff", "guardachuva.txd");
+AddSimpleModel(-1, 1300, -2002, "e-policia.dff", "e-policia.txd");
+AddSimpleModel(-1, 1300, -2003, "pareplaca.dff", "pareplaca.txd");
+AddSimpleModel(-1,18645, -2600, "helmet.dff", "helmet6.txd");
+AddSimpleModel(-1,18645, -2601, "helmet.dff", "helmet7.txd");
+AddSimpleModel(-1,18645, -2602, "helmet.dff", "helmet11.txd");
+AddSimpleModel(-1,18645, -2603, "helmet.dff", "helmet12.txd");
+AddSimpleModel(-1,18645, -2604, "helmet.dff", "helmet15.txd");
+AddSimpleModel(-1,18645, -2605, "helmet.dff", "helmet16.txd");
+AddSimpleModel(-1,18645, -2606, "helmet.dff", "helmet19.txd");
+AddSimpleModel(-1,18645, -2607, "helmet.dff", "helmet21.txd");
+AddSimpleModel(-1,18645, -2608, "helmet.dff", "helmet24.txd");
+AddSimpleModel(-1,18645, -2609, "helmet.dff", "helmet1.txd");
+AddSimpleModel(-1,18636, -2610, "boneobjeto1.dff", "boneobjeto1.txd");
+AddSimpleModel(-1,18636, -2611, "boneobjeto3.dff", "boneobjeto3.txd");
+AddSimpleModel(-1,18636, -2612, "boneobjeto4.dff", "boneobjeto4.txd");
+AddSimpleModel(-1,3634, -2613, "adidasblack.dff", "adidasblack.txd");
+AddSimpleModel(-1,3634, -2614, "flamengo.dff", "flamengo.txd");
+AddSimpleModel(-1,3634, -2615, "cbfblack.dff", "cbfblack.txd");
+AddSimpleModel(-1,3634, -2616, "oakleyazul.dff", "oakleyazul.txd");
+AddSimpleModel(-1,3634, -2700, "ifood.dff", "ifood.txd");
+AddSimpleModel(-1,3634, -2701, "ubereats.dff", "ubereats.txd");
+AddSimpleModel(-1,3634, -2702, "bsimples.dff", "bsimples.txd");
+AddSimpleModel(-1,3634, -2703, "bolsanikelateral.dff", "bolsanikelateral.txd");
+AddSimpleModel(-1,3026, -2704, "mochila2.dff", "mochila2.txd");
+AddSimpleModel(-1,3026, -2705, "mochila4.dff", "mochila4.txd");
+AddSimpleModel(-1,19942, -2706, "RadioMotorola.dff", "RadioMotorola.txd");
+
+//textdraw
+AddSimpleModel(-1, 19315, -2005, "textdraw_object.dff", "textdraw_ui.txd");
+AddSimpleModel(-1, 19315, -2000, "textdraw_object.dff", "cellphone.txd");
+
